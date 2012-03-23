@@ -73,9 +73,11 @@ var reverse_checkbox = function (checkbox) {
 };
 
 var click_checkbox = function (checkbox) {
-    reverse_checkbox(checkbox);
-    checkbox.click();
-    reverse_checkbox(checkbox);
+    if (checkbox.length) {
+        reverse_checkbox(checkbox);
+        checkbox[0].click();
+        reverse_checkbox(checkbox);
+    };
 };
 
 var is_task_selected = function (task) {
