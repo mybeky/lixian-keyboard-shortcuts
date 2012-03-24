@@ -140,12 +140,18 @@
 
     var select_all = function () {
         var ck = $('input[name=ckbutton]');
+        if (in_bt_list) {
+            ck = $('input#bt_view_all_input');
+        };
         if (!ck.attr('checked'))
             click_checkbox(ck);
     };
 
     var select_none = function () {
         var ck = $('input[name=ckbutton]');
+        if (in_bt_list) {
+            ck = $('input#bt_view_all_input');
+        };
         if (!ck.attr('checked'))
             click_checkbox(ck);
         click_checkbox(ck);
