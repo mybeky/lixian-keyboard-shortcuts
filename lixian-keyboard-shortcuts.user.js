@@ -248,6 +248,7 @@
 
                 case 27: //esc
                     popup.find('a.close').click();
+                    focus_task(current_focused_task);
                     break;
 
                 default:
