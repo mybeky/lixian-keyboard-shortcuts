@@ -47,6 +47,7 @@
     var start_all_link = $('a#li_task_start');
     var new_link = $('a.sit_new');
     var back_link;
+    var cloud_convert_link;
 
     var focus_task = function (task) {
         if (current_focused_task) {
@@ -86,6 +87,12 @@
         if (last_focused_task) {
             focus_task(last_focused_task);
         };
+    };
+
+    var cloud_convert = function () {
+        if (!cloud_convert_link)
+            cloud_convert_link = $('div#view_bt_list_nav em.icyun').parents('a.btn_m');
+        cloud_convert_link.click();
     };
 
     var reverse_checkbox = function (checkbox) {
@@ -246,21 +253,50 @@
         }
         var popup = $('div.pop_rwbox:visible');
         if (popup.length) {
+            mode = NORMAL_MODE;
+            if (e.keyCode == 27) { //esc
+                popup.find('a.close').click();
+                focus_task(current_focused_task);
+                return;
+            }
+
+            if (popup.attr('id') == 'cloud_transformat') {
+                switch (e.keyCode) {
+
+                    case 13: //enter
+                        $('a#cloud_transformat_start').click();
+                        return;
+                        break;
+
+                    case 74: //j
+                        var next_radio = popup.find('li.mousein').next().find('input[name=video_format]');
+                        if (next_radio.length) {
+                            next_radio[0].click();
+                        }
+                        break;
+                    
+                    case 75: //k
+                        var prev_radio = popup.find('li.mousein').prev().find('input[name=video_format]');
+                        if (prev_radio.length) {
+                            prev_radio[0].click();
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+                return;
+            }
+
             switch (e.keyCode) {
 
                 case 13: //enter
                     $('button#down_but').click();
                     break;
 
-                case 27: //esc
-                    popup.find('a.close').click();
-                    focus_task(current_focused_task);
-                    break;
-
                 default:
                     break;
             }
-            mode = NORMAL_MODE;
             return;
         }
 
@@ -413,6 +449,10 @@
 
             case 88: //x
                 reverse_selection_task(current_focused_task);
+                break;
+
+            case 89: //y
+                cloud_convert();
                 break;
 
             default:
