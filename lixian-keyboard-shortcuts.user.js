@@ -98,9 +98,9 @@
 
     var click_checkbox = function (checkbox) {
         if (checkbox.length) {
-            reverse_checkbox(checkbox);
+            // reverse_checkbox(checkbox);
             checkbox[0].click();
-            reverse_checkbox(checkbox);
+            // reverse_checkbox(checkbox);
         }
     };
 
