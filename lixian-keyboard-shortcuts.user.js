@@ -48,16 +48,6 @@
     var new_link = $('a.sit_new');
     var back_link;
 
-    var back_to_list = function () {
-        if (!back_link)
-            back_link = $('div#view_bt_list_nav em.icback').parents('a.btn_m');
-        back_link.click();
-        in_bt_list = false;
-        if (last_focused_task) {
-            focus_task(last_focused_task);
-        };
-    }
-
     var focus_task = function (task) {
         if (current_focused_task) {
             current_focused_task.removeClass('rw_focus');
@@ -66,17 +56,17 @@
 
         task.find('.rwset').show();
 
-        var pos = task.position();
-        var h = task.outerHeight(true);
-        var diff_top = pos.top;
-        var diff_bottom = pos.top + h - task_list_box.height();
-
         var list_box;
         if (in_bt_list) {
             list_box = bt_list_box;
         } else{
             list_box = task_list_box;
         };
+
+        var pos = task.position();
+        var h = task.outerHeight(true);
+        var diff_top = pos.top;
+        var diff_bottom = pos.top + h - list_box.height();
 
         if (diff_top < 0) {
             list_box.scrollTop(list_box.scrollTop() + diff_top);
@@ -86,6 +76,16 @@
 
         current_focused_task = task;
         current_focused_task.addClass('rw_focus');
+    };
+
+    var back_to_list = function () {
+        if (!back_link)
+            back_link = $('div#view_bt_list_nav em.icback').parents('a.btn_m');
+        back_link.click();
+        in_bt_list = false;
+        if (last_focused_task) {
+            focus_task(last_focused_task);
+        };
     };
 
     var reverse_checkbox = function (checkbox) {
@@ -119,7 +119,6 @@
             bt_list_box.scrollTop(bt_list_box[0].scrollHeight);
             focus_task(bt_list.last());
         } else {
-            console.log(task_list[0].scrollHeight);
             task_list_box.scrollTop(task_list[0].scrollHeight);
             focus_task(task_list.last());
         };
@@ -225,7 +224,7 @@
         bt_list_box = $('div#rwbox_bt_list');
         bt_list = $('div#rwbox_bt_list div.rw_list');
         last_focused_task = current_focused_task;
-        focus_task(bt_list.first());
+        scroll_to_top();
     };
 
     $(document).keydown(function (e) {
@@ -344,7 +343,6 @@
             case 71: //g
                 if (e.shiftKey) {
                     scroll_to_bottom();
-                    console.log(task_list[0].scrollHeight);
                 } else {
                     mode = NAVIGATION_MODE;
                 }
