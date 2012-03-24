@@ -92,6 +92,8 @@
     var cloud_convert = function () {
         if (!cloud_convert_link)
             cloud_convert_link = $('div#view_bt_list_nav em.icyun').parents('a.btn_m');
+        if (cloud_convert_link.hasClass('noit'))
+            reverse_selection_task(current_focused_task);
         cloud_convert_link.click();
     };
 
