@@ -20,6 +20,7 @@
                 'div.rwli_focus {border-left: 2px solid #4D90F0; background-position: -2px bottom !important;}');
 
     var NORMAL_MODE = 'normal-mode';
+    var ADD_TASK_MODE = 'add-task-mode';
     var SELECTION_MODE = 'selection-mode';
     var NAVIGATION_MODE = 'navigation-mode';
 
@@ -46,6 +47,10 @@
     var pause_all_link = $('a#li_task_pause');
     var start_all_link = $('a#li_task_start');
     var new_link = $('a.sit_new');
+    var new_link_list = $('div#tip_nav_new ul a');
+    var new_link_1 = new_link_list.eq(0);
+    var new_link_2 = new_link_list.eq(1);
+    var new_link_3 = new_link_list.eq(2);
     var back_link;
     var cloud_convert_link;
 
@@ -302,6 +307,28 @@
             return;
         }
 
+        if (mode == ADD_TASK_MODE) {
+            switch (e.keyCode) {
+
+                case 49: //c,1
+                    new_link_1.click();
+                    break;
+
+                case 50: //c,2
+                    new_link_2.click();
+                    break;
+
+                case 51: //c,3
+                    new_link_3.click();
+                    break;
+
+                default:
+                    break;
+            }
+            mode = NORMAL_MODE;
+            return;
+        }
+
         if (mode == SELECTION_MODE) {
             switch (e.keyCode) {
 
@@ -423,9 +450,12 @@
                 }
                 break;
 
-            case 67: //c
-            case 78: //n
+            case 65: //a
                 new_task();
+                break;
+
+            case 67: //c
+                mode = ADD_TASK_MODE;
                 break;
 
             case 79: //o
