@@ -152,8 +152,12 @@
     };
 
     var reverse_selection_task = function (task) {
-        click_checkbox(task.find('input[name=ck]'));
-        if (task.find('input[name=ck]').attr('checked')) {
+        var checkbox_selector = 'input[name=ck]';
+        if (in_bt_list) {
+            checkbox_selector = 'input[name=bt_list_ck]';
+        }
+        click_checkbox(task.find(checkbox_selector));
+        if (task.find(checkbox_selector).attr('checked')) {
             current_focused_task.addClass('rw_bg');
         } else {
             current_focused_task.removeClass('rw_bg');
@@ -373,12 +377,10 @@
 
             case 79: //o
                 if (current_focused_task) {
-                    var open_link = current_focused_task.find('a.ic_open');
+                    var open_link = current_focused_task.find('a.ic_open, a.link_yuntxt, a.ic_openimg');
                     if (open_link.length) {
                         open_link.click();
-                    } else {
-                        current_focused_task.find('a.link_yuntxt').click();
-                    }
+                    };
                 }
                 break;
 
