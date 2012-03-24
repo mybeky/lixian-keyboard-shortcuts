@@ -331,6 +331,14 @@
 
         switch(e.keyCode) {
 
+            case 37: //left
+                $('a#prev_image:visible').click();
+                break;
+
+            case 39: //right
+                $('a#next_image:visible').click();
+                break;
+
             case 56: //8
                 if (e.shiftKey) {
                     mode = SELECTION_MODE;
