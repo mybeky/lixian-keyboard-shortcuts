@@ -2,6 +2,12 @@
 
 Add keyboard shortcut support for lixian.xunlei.com .
 
+##Compability
+This script has been successfully tested in
+
+- Firefox + Greasemonkey / Scriptish
+- Chrome + Tampermonkey
+
 ##Shortcuts
 
 ###Navigation
