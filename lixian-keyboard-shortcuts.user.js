@@ -36,6 +36,7 @@
 
     var task_list_box = $('div#rowbox_list');
     var task_list = $('div#rowbox_list div.rw_list');
+    var inverse_select_link = $('div.sellection a').eq(1);
     var bt_list_box;
     var bt_list;
     var bt_file_list_box;
@@ -231,6 +232,10 @@
         if (!ck.attr('checked'))
             click_checkbox(ck);
         click_checkbox(ck);
+    };
+
+    var select_inverse = function () {
+        inverse_select_link.click();
     };
 
     var bt_select_all = function () {
@@ -528,6 +533,10 @@
 
                 case 65: //*,a
                     select_all();
+                    break;
+
+                case 73: //*,i
+                    select_inverse();
                     break;
 
                 case 78: //*,n
