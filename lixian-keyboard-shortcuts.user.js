@@ -61,7 +61,8 @@
     var new_link_2 = new_link_list.eq(1);
     var new_link_3 = new_link_list.eq(2);
     var back_link;
-    var cloud_convert_link;
+    var cloud_convert_link = $('a#cloud_nav');
+    var bt_cloud_convert_link;
 
     var call_js = function (cmd) {
         unsafe.location = 'javascript:' + cmd;
@@ -140,11 +141,17 @@
     };
 
     var cloud_convert = function () {
-        if (!cloud_convert_link)
-            cloud_convert_link = $('div#view_bt_list_nav em.icyun').parents('a.btn_m');
-        if (cloud_convert_link.hasClass('noit'))
-            reverse_selection_task(current_focused_task);
-        click_link(cloud_convert_link, '$("div#view_bt_list_nav em.icyun").parents("a.btn_m")');
+        if (in_bt_list) {
+            if (!bt_cloud_convert_link)
+                bt_cloud_convert_link = $('div#view_bt_list_nav em.icyun').parents('a.btn_m');
+            if (bt_cloud_convert_link.hasClass('noit'))
+                reverse_selection_task(current_focused_task);
+            click_link(bt_cloud_convert_link, '$("div#view_bt_list_nav em.icyun").parents("a.btn_m")');
+        } else {
+            if (cloud_convert_link.hasClass('noit'))
+                reverse_selection_task(current_focused_task);
+            click_link(cloud_convert_link, 'a#cloud_nav');
+        }
     };
 
     var reverse_checkbox = function (checkbox) {
