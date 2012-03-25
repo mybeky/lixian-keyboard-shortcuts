@@ -63,6 +63,22 @@
     var back_link;
     var cloud_convert_link;
 
+    var call_js = function (cmd) {
+        unsafe.location = 'javascript:' + cmd;
+    };
+
+    var click_link = function (link, selector) {
+        if (link.data('events')) {
+            link.click();
+        } else {
+            if (selector.indexOf('$') < 0) {
+                call_js('$("' + selector + '").click()');
+            } else {
+                call_js(selector + '.click()');
+            }
+        }
+    };
+
     var focus_task = function (task) {
         if (current_focused_task) {
             current_focused_task.removeClass('rw_focus');
@@ -128,7 +144,7 @@
             cloud_convert_link = $('div#view_bt_list_nav em.icyun').parents('a.btn_m');
         if (cloud_convert_link.hasClass('noit'))
             reverse_selection_task(current_focused_task);
-        cloud_convert_link.click();
+        click_link(cloud_convert_link, '$("div#view_bt_list_nav em.icyun").parents("a.btn_m")');
     };
 
     var reverse_checkbox = function (checkbox) {
@@ -296,6 +312,10 @@
         new_link.click();
     };
 
+    var dismiss_popup = function (popup) {
+        click_link(popup.find('a.close'), 'div.pop_rwbox:visible a.close');
+    };
+
     if (task_list.length) {
         focus_task(task_list.first());
     };
@@ -324,7 +344,7 @@
         var popup = $('div.pop_rwbox:visible');
         if (popup.length) {
             if (e.keyCode == 27) { //esc
-                popup.find('a.close').click();
+                dismiss_popup(popup);
                 focus_task(current_focused_task);
                 mode = NORMAL_MODE;
                 return;
@@ -427,7 +447,7 @@
                 switch (e.keyCode) {
 
                     case 13: //enter
-                        $('a#cloud_transformat_start').click();
+                        click_link($('a#cloud_transformat_start'), 'a#cloud_transformat_start')
                         return;
                         break;
 
