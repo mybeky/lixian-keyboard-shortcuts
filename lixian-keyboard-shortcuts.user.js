@@ -1,7 +1,11 @@
 // ==UserScript==
-// @name           Xunlei Lixian Keyboard Shortcuts
-// @namespace      mybeky
-// @include        http://dynamic.cloud.vip.xunlei.com/*
+// @name          Xunlei Lixian Keyboard Shortcuts
+// @namespace     mybeky
+// @author        mybeky
+// @include       http://dynamic.cloud.vip.xunlei.com/*
+// @description   Add keyboard shortcut support for lixian.xunlei.com
+// @icon          http://bit.ly/xlicon
+// @version       0.1
 // ==/UserScript==
 
 (function () {
