@@ -278,7 +278,7 @@
     var delete_tasks = function () {
         var delete_link = $('a#li_task_del');
         if (delete_link.length && !delete_link.hasClass('noit')) {
-            delete_link.click();
+            click_link(delete_link, 'a#li_task_del')
         } else {
             delete_link = $('a#history_nav_delete');
             if (!delete_link.length) {
@@ -305,7 +305,7 @@
         if (pause_all_link.hasClass('noit')) {
             current_focused_task.find('a[cmd=pause]').click();
         } else {
-            pause_all_link.click();
+            click_link(pause_all_link, 'a#li_task_pause')
         }
     };
 
@@ -316,7 +316,7 @@
         if (start_all_link.hasClass('noit')) {
             current_focused_task.find('a[cmd=start]').click();
         } else {
-            start_all_link.click();
+            click_link(start_all_link, 'a#li_task_start')
         }
     };
 
