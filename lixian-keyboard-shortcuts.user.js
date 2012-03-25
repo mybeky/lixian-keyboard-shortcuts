@@ -341,6 +341,17 @@
         scroll_to_top();
     };
 
+    var old_panel_show = unsafe.panel.show;
+    unsafe.panel.show = function () {
+        old_panel_show.apply(this, arguments);
+        if (arguments[0] == 'main') {
+            in_bt_list = false;
+            if (last_focused_task) {
+                focus_task(last_focused_task);
+            }
+        }
+    }
+
     $(document).keydown(function (e) {
         if (e.shiftKey || e.altKey || e.ctrlKey) {
             var keyCodes = [56, 71]; // *,G
