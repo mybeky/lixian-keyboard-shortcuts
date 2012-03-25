@@ -4,7 +4,7 @@
 // @author        mybeky
 // @include       http://dynamic.cloud.vip.xunlei.com/*
 // @description   Add keyboard shortcut support for lixian.xunlei.com
-// @icon          http://bit.ly/xlicon
+// @icon          http://f.cl.ly/items/3J1H2B0p3G2B0o3W0a1A/thunder.png
 // @version       0.1
 // ==/UserScript==
 
