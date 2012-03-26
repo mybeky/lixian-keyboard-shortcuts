@@ -2,7 +2,7 @@
 
 Add keyboard shortcut support for lixian.xunlei.com .
 
-##Compability
+##Compatibility
 This script has been successfully tested in
 
 - Firefox + Greasemonkey / Scriptish
@@ -64,15 +64,15 @@ This script has been successfully tested in
     </tr>
     <tr>
         <td>*, a</td>
-        <td>全选</td>
+        <td>全选 (<b>a</b>ll)</td>
     </tr>
     <tr>
         <td>*, n</td>
-        <td>全都不选</td>
+        <td>全都不选 (<b>n</b>one)</td>
     </tr>
     <tr>
         <td>*, i</td>
-        <td>反选</td>
+        <td>反选 (<b>i</b>nverse)</td>
     </tr>
     <tr>
         <td>*, *</td>
@@ -89,7 +89,7 @@ This script has been successfully tested in
     </tr>
     <tr>
         <td>a</td>
-        <td>新建任务</td>
+        <td>新建任务 (<b>a</b>dd)</td>
     </tr>
     <tr>
         <td>c, 1</td>
@@ -125,27 +125,44 @@ This script has been successfully tested in
     </tr>
     <tr>
         <td>s</td>
-        <td>开始</td>
+        <td>开始 (<b>s</b>tart)</td>
     </tr>
     <tr>
         <td>p</td>
-        <td>暂停</td>
+        <td>暂停 (<b>p</b>ause)</td>
     </tr>
     <tr>
         <td>e</td>
-        <td>删除</td>
+        <td>删除 (archiv<b>e</b>)</td>
     </tr>
     <tr>
         <td>d</td>
-        <td>下载</td>
+        <td>下载 (<b>d</b>ownload)</td>
     </tr>
     <tr>
         <td>y</td>
-        <td>云转码</td>
+        <td>云转码 (<b>y</b>un)</td>
     </tr>
     <tr>
         <td>o</td>
-        <td>打开/快速播放</td>
+        <td>打开/快速播放 (<b>o</b>pen)</td>
+    </tr>
+</table>
+
+###Misc
+
+<table>
+    <tr>
+        <th width="200">Key</th>
+        <th width="200">Action</th>
+    </tr>
+    <tr>
+        <td>enter</td>
+        <td>开始下载/转码</td>
+    </tr>
+    <tr>
+        <td>esc</td>
+        <td>取消</td>
     </tr>
 </table>
 
